@@ -13,5 +13,11 @@ after_success:
 - npm run test:cov
 - npm run test:codecov
 deploy:
+  provider: npm
+  email: anthony.kerz@gmail.com
   api_key:
     secure: naLpTNqir0Mjio6h1pmW1MNAxo649ggPP3Cbi1YO+FgoNuqGAY3I5ntQ0EhVmodZM9kisUqFAMPwr664/Tu8zbRlHmu/fZ/ywXWUXv6PQ6YrHcIlMcyAYByA6XiNVf/QcAUIz6PpwQudTLQNHoosTx/nkEtLP0q1MMaq/IejpsZ7ZyIrEZ8U9KFIMwJi/u+A0CwI8rxt36mZw5M+RnfZTgPm3LxMzf3bxhC9kxU4XlB8QqfJu7oAl6C3febSBW6YMI5VA3UD8kYvEKPI0e69t9QHaRH3+WsQZx1prFQnhuXccyFbKHaADf17WZoPqG8zfiv/mKfkoJrfc+hfDEoDGDeHQ0mNeyjj37UArPSl7FFK0AMDN/4FSXYxYVwGiV93qv4GeA4OAyPQwvWirRmkhYiK8GY/BgMd7/uOR4uf9CxEFKVXUk2m5lRK74jS+9JO9vDSmkocUSD4HVG4o8xeVvR2kc393gGbYTiNMOeIWtlXlzGmJ3wtoDRPFiE2xn4DzF6ZVog7uJUDC2D1DaIaoSuyu3N4L8eY19scAZEpZwi1gkv08bR5IUTqZ0ubsPF0JbWlyptUx+UlCAOL5xWZapG91On2ol6PYELmDl6JsVE8i6jGYDwH7PCxZdRlcyMr05NOOXcCannqJxCb0Bwp7o7PY3I9/imaN6kyp0VykdE=
+  skip_cleanup: true
+  on:
+    branch: master
+    condition: "-z $TRAVIS_TAG"
