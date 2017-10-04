@@ -1,5 +1,5 @@
 {
-  "name": "redux-form-material-ui",
+  "name": "@watchmen/redux-form-material-ui",
   "version": "4.3.0",
   "description": "An adapter between Redux Form and Material UI components",
   "main": "./lib/index.js",
@@ -12,23 +12,20 @@
     "build": "npm run build:lib && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build:lib": "babel src --out-dir lib",
-    "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/redux-form-material-ui.js",
-    "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/redux-form-material-ui.min.js",
+    "build:umd":
+      "cross-env NODE_ENV=development webpack src/index.js dist/redux-form-material-ui.js",
+    "build:umd:min":
+      "cross-env NODE_ENV=production webpack src/index.js dist/redux-form-material-ui.min.js",
     "clean": "rimraf dist lib",
     "lint": "eslint src",
     "prepublish": "npm run test && npm run lint && npm run clean && npm run build",
-    "test": "mocha --compilers js:babel-register --recursive --recursive \"src/**/__tests__/*\" --require src/__tests__/setup.js",
+    "test":
+      "mocha --compilers js:babel-register --recursive --recursive \"src/**/__tests__/*\" --require src/__tests__/setup.js",
     "test:watch": "npm test -- --watch",
     "test:cov": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text npm test",
     "test:codecov": "cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js"
   },
-  "keywords": [
-    "redux",
-    "redux-form",
-    "material-ui",
-    "redux-form-material-ui",
-    "adapter"
-  ],
+  "keywords": ["redux", "redux-form", "material-ui", "redux-form-material-ui", "adapter"],
   "author": "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
   "license": "MIT",
   "bugs": {
@@ -74,20 +71,15 @@
     "webpack": "^3.5.5"
   },
   "peerDependencies": {
-    "material-ui": "^0.19.0 || 1",
     "react": "15",
     "redux-form": "6 || 7"
   },
-  "files": [
-    "README.md",
-    "lib",
-    "es",
-    "dist"
-  ],
+  "dependencies": {
+    "material-ui": "^0.19.3"
+  },
+  "files": ["README.md", "lib", "es", "dist"],
   "nyc": {
-    "include": [
-      "src/**/*.js"
-    ],
+    "include": ["src/**/*.js"],
     "sourceMap": false,
     "instrument": false
   },
@@ -95,9 +87,10 @@
   "npmFileMap": [
     {
       "basePath": "/dist/",
-      "files": [
-        "*.js"
-      ]
+      "files": ["*.js"]
     }
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
